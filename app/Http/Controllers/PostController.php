@@ -28,9 +28,9 @@ class PostController extends Controller
     }
 
     // 文章详情
-    public function show($id)
+    public function show(Post $post)
     {
-        return view('post.show');
+        return view('post.show', compact('post'));
     }
 
     // 文章编辑
