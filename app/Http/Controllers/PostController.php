@@ -10,7 +10,9 @@ class PostController extends Controller
     // 文章列表
     public function index()
     {
-        return view('post.index');
+        $posts = Post::orderBy('created_at', 'desc')->get();
+
+        return view('post.index', compact('posts'));
     }
 
     // 文章创建

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-        <div class="col-sm-8 blog-main">
+    <div class="col-sm-8 blog-main">
             <div>
                 <div id="carousel-example" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
@@ -33,48 +33,15 @@
             </div>        <div style="height: 20px;">
             </div>
             <div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/62" >你好你好</a></h2>
-                    <p class="blog-post-meta">May 14, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
+                @foreach($posts as $post)
+                    <div class="blog-post">
+                        <h2 class="blog-post-title"><a href="{{ route('posts.show', $post->id) }}" >{{ $post->content }}</a></h2>
+                        <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }} by <a href="/user/5">Kassandra Ankunding2</a></p>
 
-                    <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/61" >你好你好</a></h2>
-                    <p class="blog-post-meta">May 14, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-
-                    <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/60" >你好你好</a></h2>
-                    <p class="blog-post-meta">May 14, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-
-                    <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/59" >你好你好</a></h2>
-                    <p class="blog-post-meta">May 14, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-
-                    <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/58" >自动放大舒服的撒</a></h2>
-                    <p class="blog-post-meta">May 11, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-
-                    我们坚持一个中国我们坚持一个中国我们坚持一个中国我们坚持一个中国我们坚持一个中国我们坚持一个中国我们...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
-                <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/57" >反对撒发的撒风反对撒发的撒风反对撒发的撒风</a></h2>
-                    <p class="blog-post-meta">May 7, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-
-                    反对撒发的撒风反对撒发的撒风反对撒发的撒风反对撒发的撒风反对撒发的撒风反对撒发的撒风反对撒发的撒风反...
-                    <p class="blog-post-meta">赞 0  | 评论 0</p>
-                </div>
+                        {!! $post->content !!}
+                        <p class="blog-post-meta">赞 0  | 评论 0</p>
+                    </div>
+                @endforeach
 
                 <ul class="pagination">
 
