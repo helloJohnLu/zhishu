@@ -56,6 +56,8 @@ class PostController extends Controller
      */
     public function update(CreatePostRequest $request, Post $post)
     {
+        // todo: 更新授权
+
         $post->title = $request->get('title');
         $post->content = $request->get('content');
         $post->save();
