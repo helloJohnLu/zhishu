@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\ImageUploadRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,7 @@ class PostController extends Controller
         return view('post.create');
     }
 
-    // 表单提交处理
+    // 添加文章表单提交处理
     public function store(CreatePostRequest $request)
     {
         $post = Post::create([
@@ -64,7 +65,7 @@ class PostController extends Controller
      * @param Request $request
      * @return string    返回图片路径
      */
-    public function imageUpload(Request $request)
+    public function imageUpload(ImageUploadRequest $request)
     {
         $path = Storage::putFile(date('Ym', time()) . '/' . date('d', time()), $request->file('wangEditorH5File'));
 
