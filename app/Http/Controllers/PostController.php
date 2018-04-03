@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -55,5 +56,18 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * 文章图片上传
+     *
+     * @param Request $request
+     * @return string    返回图片路径
+     */
+    public function imageUpload(Request $request)
+    {
+        $path = Storage::putFile(date('Ym', time()) . '/' . date('d', time()), $request->file('wangEditorH5File'));
+
+        return asset('storage/' . $path);
     }
 }
