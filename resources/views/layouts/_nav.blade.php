@@ -2,19 +2,22 @@
     <div class="container">
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <a class="blog-nav-item " href="/posts">首页</a>
+                <a class="blog-nav-item " href="/posts"
+                   style="font-size: x-large; font-weight: 500; color: #fefefe;">知 · 书</a>
             </li>
             <li>
-                <a class="blog-nav-item" href="/posts/create">写文章</a>
+                <a class="blog-nav-item" href="{{ route('posts.create') }}">写文章</a>
             </li>
             <li>
                 <a class="blog-nav-item" href="/notices">通知</a>
             </li>
             <li>
-                <input name="query" type="text" value="" class="form-control" style="margin-top:10px" placeholder="搜索词">
-            </li>
-            <li>
-                <button class="btn btn-default" style="margin-top:10px" type="submit">Go!</button>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-md" id="searchinput" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-md btn-info" style="margin-left: -52px;">Go!</button>
+                </form>
             </li>
         </ul>
 

@@ -5,16 +5,7 @@
         <form action="{{ route('posts.store') }}" method="POST">
             {{ csrf_field() }}
 
-            {{-- 错误提示 --}}
-            @if(count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @include('messages.errors')
 
             <div class="form-group">
                 <label>标题</label>

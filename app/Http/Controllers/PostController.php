@@ -42,13 +42,13 @@ class PostController extends Controller
     }
 
     // 文章编辑
-    public function edit($id)
+    public function edit(Post $post)
     {
-        return view('post.edit');
+        return view('post.edit', compact('post'));
     }
 
     // 文章更新 表单处理
-    public function update(Request $request, $id)
+    public function update(CreatePostRequest $request, Post $post)
     {
         //
     }

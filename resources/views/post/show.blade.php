@@ -5,10 +5,10 @@
             <div class="blog-post">
                 <div style="display:inline-flex">
                     <h2 class="blog-post-title">{{ $post->title }}</h2>
-                    <a style="margin: auto"  href="/posts/{{ $post->id }}/edit">
+                    <a style="margin: auto"  href="{{ route('posts.edit', $post->id) }}">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
-                    <a style="margin: auto"  href="/posts/{{ $post->id }}/delete">
+                    <a style="margin: auto"  href="{{ route('posts.destroy', $post->id) }}">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </a>
                 </div>
