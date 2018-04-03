@@ -27,7 +27,7 @@ class ImageUploadRequest extends FormRequest
         return [
             'wangEditorH5File'      =>  [
                 'image',
-                Rule::dimensions()->maxWidth(1000)->maxHeight(667),
+                Rule::dimensions()->maxWidth(1000)->maxHeight(750),
             ]
         ];
     }
