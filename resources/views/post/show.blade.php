@@ -8,7 +8,7 @@
                     <a style="margin: auto"  href="{{ route('posts.edit', $post->id) }}">
                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </a>
-                    <a style="margin: auto"  href="{{ route('posts.destroy', $post->id) }}">
+                    <a style="margin: auto" href="javascript:;" onclick="deletePost()">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -55,4 +55,31 @@
             </div>
 
         </div>
+@stop
+
+@section('script')
+    <script>
+        function deletePost() {
+            //询问框
+            layer.confirm('确定要删除此文章吗？', {
+                btn: ['确定','取消操作'] //按钮
+            }, function(){
+                // 跳转到文章列表页
+                posts = "{{ route('posts.index') }}";
+
+                // ajax 删除
+                $.post('{{ route("posts.destroy", $post->id) }}',{ '_token':'{{csrf_token() }}', '_method':'DELETE'}, function (data) {
+                    if(data.status === 1){
+                        layer.msg(data.msg, {icon: 6});
+                        setTimeout('location.href = posts',2000);
+                    }else{
+                        layer.msg(data.msg,  {icon: 5});
+                        setTimeout('location.href = location.href',2000);
+                    }
+                });
+            }, function(){
+                //
+            });
+        }
+    </script>
 @stop

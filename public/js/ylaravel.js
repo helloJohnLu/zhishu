@@ -8,6 +8,7 @@ $(document).ready(function(){
     });
 });
 
+
 // 富文本编辑器
 var editor = new wangEditor('content');
 

@@ -64,9 +64,26 @@ class PostController extends Controller
     }
 
     // 文章删除
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        // TODO: 删除文章授权
+
+        // 软删除
+        $post->delete();
+
+        if ($post->trashed()) {
+            $data = [
+                'status'        =>  1,
+                'msg'           =>  '文章删除成功'
+            ];
+        }else{
+            $data = [
+                'status'        =>  0,
+                'msg'           =>  '文章删除失败'
+            ];
+        }
+
+        return $data;
     }
 
     /**
