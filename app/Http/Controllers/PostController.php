@@ -47,10 +47,20 @@ class PostController extends Controller
         return view('post.edit', compact('post'));
     }
 
-    // 文章更新 表单处理
+    /**
+     * 文章更新 表单处理
+     *
+     * @param CreatePostRequest $request  数据校验
+     * @param Post $post    模型绑定
+     * @return      跳转到文章详情页
+     */
     public function update(CreatePostRequest $request, Post $post)
     {
-        //
+        $post->title = $request->get('title');
+        $post->content = $request->get('content');
+        $post->save();
+
+        return redirect()->route('posts.show', $post->id);
     }
 
     // 文章删除
