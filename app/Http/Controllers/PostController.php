@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,14 @@ class PostController extends Controller
     }
 
     // 表单提交处理
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        $post = Post::create([
+            'title'     =>  $request->get('title'),
+            'content'   =>  $request->get('content')
+        ]);
+
+        return redirect()->route('posts.index');
     }
 
     // 文章详情

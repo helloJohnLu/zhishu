@@ -18,7 +18,6 @@
                 {!! $post->content !!}
                 <div>
                     <a href="/posts/{{ $post->id }}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
-
                 </div>
             </div>
 
