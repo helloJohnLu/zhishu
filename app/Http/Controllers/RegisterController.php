@@ -14,7 +14,12 @@ class RegisterController extends Controller
         return view('register.register');
     }
 
-    // 处理注册表单提交
+    /**
+     * 用户注册
+     *
+     * @param RegisterRequest $request    数据校验
+     * @return 跳转到登录页面
+     */
     public function store(RegisterRequest $request)
     {
         $name = $request->get('name');

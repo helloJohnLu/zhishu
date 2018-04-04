@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -16,10 +16,22 @@ class LoginController extends Controller
         return view('login.login');
     }
 
-    // 处理登录表单提交
-    public function store()
+    /**
+     * 处理登录表单提交
+     *
+     * @param LoginRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function store(LoginRequest $request)
     {
-        //
+        $user = $request->except('_token');
+        $is_remember = boolval($request->get('is_remember'));
+
+        if (\Auth::attempt($user, $is_remember)) {
+            return redirect()->route('posts.index');
+        }
+
+        return back()->withErrors('邮箱与密码不匹配！');
     }
 
     // 退出

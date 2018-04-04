@@ -31,9 +31,9 @@
 <body>
 
 <div class="container">
-    @include('messages.message')
-    <form class="form-signin" method="POST" action="/login">
-        <input type="hidden" name="_token" value="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy">
+    <form class="form-signin" method="POST" action="{{ route('login.store') }}">
+        @include('messages.message')
+        {{ csrf_field() }}
         <h2 class="form-signin-heading">请登录</h2>
         <label for="inputEmail" class="sr-only">邮箱</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -46,6 +46,8 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
         <a href="/register" class="btn btn-lg btn-primary btn-block" type="submit">去注册>></a>
+        <br>
+        @include('messages.errors')
     </form>
 
 </div> <!-- /container -->
