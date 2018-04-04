@@ -30,7 +30,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="/user/5">我的主页</a></li>
                             <li><a href="/user/5/setting">个人设置</a></li>
-                            <li><a href="{{ route('login.logout') }}">登出</a></li>
+                            <li><a href="{{ route('logout') }}">登出</a></li>
                         </ul>
                     </div>
                 </li>
@@ -38,7 +38,7 @@
         @else
             <div class="btn-group nav navbar-nav navbar-right" style="margin-top: 7px;">
                 <a href="{{ route('register.index') }}" class="btn btn-warning">注册</a>
-                <a href="{{ route('login.index') }}" class="btn btn-success">登录</a>
+                <a href="{{ route('login') }}" class="btn btn-success">登录</a>
             </div>
         @endif
     </div>

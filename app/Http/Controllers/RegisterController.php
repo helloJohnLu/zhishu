@@ -30,6 +30,6 @@ class RegisterController extends Controller
 
         session()->flash('success', '您已成功注册，现在可以登录了。');
 
-        return redirect()->route('login.index');
+        return redirect()->route('login');
     }
 }

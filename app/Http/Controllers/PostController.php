@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     // 文章列表
     public function index()
     {
@@ -29,7 +34,8 @@ class PostController extends Controller
     {
         $post = Post::create([
             'title'     =>  $request->get('title'),
-            'content'   =>  $request->get('content')
+            'content'   =>  $request->get('content'),
+            'user_id'   =>  \Auth::id(),
         ]);
 
         return redirect()->route('posts.index');

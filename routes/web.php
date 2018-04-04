@@ -18,10 +18,10 @@ Route::post('posts/image/upload', 'PostController@imageUpload')->name('posts.ima
 Route::get('register', 'RegisterController@index')->name('register.index');
 Route::post('register', 'RegisterController@store')->name('register.store');
 // 登录
-Route::get('login', 'LoginController@index')->name('login.index');
+Route::get('login', 'LoginController@index')->name('login');
 Route::post('login', 'LoginController@store')->name('login.store');
 // 登出
-Route::get('logout', 'LoginController@logout')->name('login.logout');
+Route::get('logout', 'LoginController@logout')->name('logout');
 // 个人设置页面
 Route::get('user/me/setting', 'UserController@setting')->name('user.setting');
 // 个人设置操作

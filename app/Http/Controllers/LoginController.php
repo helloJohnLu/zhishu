@@ -44,6 +44,6 @@ class LoginController extends Controller
         \Auth::logout();
         session()->flash('success', '您已登出！');
 
-        return redirect()->route('login.index');
+        return redirect()->route('login');
     }
 }
