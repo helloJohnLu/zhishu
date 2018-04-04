@@ -34,9 +34,15 @@ class LoginController extends Controller
         return back()->withErrors('邮箱与密码不匹配！');
     }
 
-    // 退出
+    /**
+     * 登出
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
-        //
+        \Auth::logout();
+
+        return redirect()->route('login.index');
     }
 }
