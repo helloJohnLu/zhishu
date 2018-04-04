@@ -11,6 +11,11 @@ class RegisterController extends Controller
     // 用户注册页面
     public function index()
     {
+        // 如果用户已登录
+        if (\Auth::check()) {
+            return redirect()->route('posts.index');
+        }
+
         return view('register.register');
     }
 

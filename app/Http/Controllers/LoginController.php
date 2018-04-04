@@ -13,6 +13,11 @@ class LoginController extends Controller
      */
     public function index()
     {
+        // 如果用户已登录
+        if (\Auth::check()) {
+            return redirect()->route('posts.index');
+        }
+
         return view('login.login');
     }
 
