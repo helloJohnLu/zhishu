@@ -87,6 +87,8 @@ return [
     */
     'attributes'           => [
         'username' => '用户名',
+        'name'     => '用户名',
+        'email'    => '邮箱',
         'account'  => '账号',
         'captcha'  => '验证码',
         'mobile'   => '手机号',

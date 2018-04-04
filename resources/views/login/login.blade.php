@@ -35,6 +35,7 @@
         @include('messages.message')
         {{ csrf_field() }}
         <h2 class="form-signin-heading">请登录</h2>
+        @include('messages.errors')
         <label for="inputEmail" class="sr-only">邮箱</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
@@ -47,7 +48,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
         <a href="/register" class="btn btn-lg btn-primary btn-block" type="submit">去注册>></a>
         <br>
-        @include('messages.errors')
+        <a href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-arrow-left"></i> 返回首页</a>
     </form>
 
 </div> <!-- /container -->

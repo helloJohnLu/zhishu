@@ -35,6 +35,7 @@
     <form class="form-signin" method="POST" action="{{ route('register.store') }}">
         {{ csrf_field() }}
         <h2 class="form-signin-heading">用户注册</h2>
+        @include('messages.errors')
         <label for="name" class="sr-only">名字</label>
         <input type="text" name="name" id="name" class="form-control" placeholder="名字" value="{{ old('name') }}" required autofocus>
         <label for="inputEmail" class="sr-only">邮箱</label>
@@ -46,7 +47,7 @@
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
         <br>
-        @include('messages.errors')
+        <a href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-arrow-left"></i> 返回首页</a>
     </form>
 </div> <!-- /container -->
 
