@@ -62,7 +62,8 @@ class PostController extends Controller
      */
     public function update(CreatePostRequest $request, Post $post)
     {
-        // todo: 更新授权
+        // 权限
+        $this->authorize('update', $post);
 
         $post->title = $request->get('title');
         $post->content = $request->get('content');
@@ -74,7 +75,8 @@ class PostController extends Controller
     // 文章删除
     public function destroy(Post $post)
     {
-        // TODO: 删除文章授权
+        // 权限
+        $this->authorize('delete', $post);
 
         // 软删除
         $post->delete();

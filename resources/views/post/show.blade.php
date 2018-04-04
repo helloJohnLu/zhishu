@@ -5,12 +5,16 @@
             <div class="blog-post">
                 <div style="display:inline-flex">
                     <h2 class="blog-post-title">{{ $post->title }}</h2>
-                    <a style="margin: auto"  href="{{ route('posts.edit', $post->id) }}">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                    </a>
-                    <a style="margin: auto" href="javascript:;" onclick="deletePost()">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </a>
+                    @can('update', $post)
+                        <a style="margin: auto;margin-left: 10px;"  href="{{ route('posts.edit', $post->id) }}">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                        </a>
+                    @endcan
+                    @can('delete', $post)
+                        <a style="margin: auto;margin-left: 10px;" href="javascript:;" onclick="deletePost()">
+                            <span class="glyphicon glyphicon-remove" style="color: red" aria-hidden="true"></span>
+                        </a>
+                    @endcan
                 </div>
 
                 <p class="blog-post-meta">
