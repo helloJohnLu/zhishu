@@ -13,4 +13,10 @@ class Post extends Model
     protected $dates = ['deleted_at'];
 
     protected $guarded = [];
+
+    // 模型关联，文章关联用户
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 }

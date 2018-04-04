@@ -36,7 +36,9 @@
                 @foreach($posts as $post)
                     <div class="blog-post">
                         <h2 class="blog-post-title"><a href="{{ route('posts.show', $post->id) }}" >{{ $post->title }}</a></h2>
-                        <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }} by <a href="/user/5">Kassandra Ankunding2</a></p>
+                        <p class="blog-post-meta">
+                            {{ $post->created_at->toFormattedDateString() }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
+                        </p>
                         @if(strlen(\Illuminate\Support\Str::words($post->content, 1)) > 180)
                             {!! str_limit($post->content, 180, '......') !!}
                         @else
