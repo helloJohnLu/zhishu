@@ -46,6 +46,7 @@ h6, .h6 {
     position: relative;
     display: inline-block;
     padding: 10px;
+    padding-left: 2px;
     font-weight: 500;
     color: #eee;
 }
@@ -171,4 +172,10 @@ p {
 }
 .blog-footer p:last-child {
     margin-bottom: 0;
+}
+
+/* 头像 hover 效果调整 */
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+     background-color: gray;
+    border-color: #337ab7;
 }
