@@ -31,7 +31,7 @@
 <body>
 
 <div class="container">
-
+    @include('messages.message')
     <form class="form-signin" method="POST" action="/login">
         <input type="hidden" name="_token" value="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy">
         <h2 class="form-signin-heading">请登录</h2>

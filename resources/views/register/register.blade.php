@@ -32,21 +32,22 @@
 
 <div class="container">
 
-    <form class="form-signin" method="POST" action="/register">
-        <input type="hidden" name="_token" value="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy">
-        <h2 class="form-signin-heading">请注册</h2>
+    <form class="form-signin" method="POST" action="{{ route('register.store') }}">
+        {{ csrf_field() }}
+        <h2 class="form-signin-heading">用户注册</h2>
         <label for="name" class="sr-only">名字</label>
-        <input type="text" name="name" id="name" class="form-control" placeholder="名字" required autofocus>
+        <input type="text" name="name" id="name" class="form-control" placeholder="名字" value="{{ old('name') }}" required autofocus>
         <label for="inputEmail" class="sr-only">邮箱</label>
-        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="邮箱" required autofocus>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="邮箱" value="{{ old('email') }}" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="输入密码" required>
-        <label class="sr-only">重复密码</label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="重复输入密码" required>
+        <label class="sr-only">再次输入密码</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="再次输入密码" required>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+        <br>
+        @include('messages.errors')
     </form>
-
 </div> <!-- /container -->
 
 </body>
