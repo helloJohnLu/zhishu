@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Yankewei\LaravelSensitive\Facades\Sensitive;
 
 class PostController extends Controller
 {
@@ -123,10 +124,19 @@ class PostController extends Controller
             'content.max'       =>  '请不要发表内容过长的评论，500 个字为限',
         ]);
 
+        // 敏感词过滤
+        $interference = ['&', '*'];     // 干扰因子
+        $filename = Storage::disk('local')->url('words.txt');
+
+        Sensitive::interference($interference);  // 添加干扰因子
+        Sensitive::addwords($filename);     //需要过滤的敏感词
+        $txt = $request->get('content');
+        $words = Sensitive::filter($txt);
+
         // 逻辑
         $comment = new Comment();
         $comment->user_id = \Auth::id();
-        $comment->content = $request->get('content');
+        $comment->content = $words;
         $post->comments()->save($comment);
 
         // 渲染
