@@ -57,4 +57,22 @@ class UserController extends Controller
 
         return back();
     }
+
+    // 个人中心
+    public function show(User $user)
+    {
+        return view('user.show', compact('user'));
+    }
+
+    // 关注用户
+    public function fan()
+    {
+        return;
+    }
+
+    // 取消关注
+    public function unfan()
+    {
+        return;
+    }
 }

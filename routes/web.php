@@ -25,10 +25,18 @@ Route::get('login', 'LoginController@index')->name('login');
 Route::post('login', 'LoginController@store')->name('login.store');
 // 登出
 Route::get('logout', 'LoginController@logout')->name('logout');
+
+
+/*用户个人中心*/
 // 个人设置页面
 Route::get('user/me/setting', 'UserController@setting')->name('user.setting');
 // 个人设置操作
 Route::post('user/me/setting', 'UserController@settingStore')->name('user.settingStore');
+// 个人中心
+Route::get('user/{user}', 'UserController@show')->name('user.show');
+// 关注与取消关注
+Route::post('user/{user}/fan', 'UserController@fan')->name('user.fan');
+Route::post('user/{user}/unfan', 'UserController@unfan')->name('user.unfan');
 
 
 /*点赞模块*/

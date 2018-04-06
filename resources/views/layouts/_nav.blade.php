@@ -28,7 +28,7 @@
                         <img src="{{ asset(Auth::user()->avatar) }}" alt="" class="img-rounded" style="border-radius:100%; width: 30px; height: 30px;">
                         <a href="#" class="blog-nav-item dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}  <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/user/{{ Auth::id() }}">我的主页</a></li>
+                            <li><a href="{{ route('user.show', Auth::id()) }}">我的主页</a></li>
                             <li><a href="{{ route('user.settingStore') }}">个人设置</a></li>
                             <li><a href="{{ route('logout') }}">登出</a></li>
                         </ul>
