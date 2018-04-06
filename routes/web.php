@@ -1,5 +1,8 @@
 <?php
 
+/*搜索*/
+Route::get('/posts/search', 'PostController@search')->name('search');
+
 /* 文章模块 */
 Route::resource('posts', 'PostController');
 // URL跳转

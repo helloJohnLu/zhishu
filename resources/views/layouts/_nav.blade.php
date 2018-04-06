@@ -12,9 +12,9 @@
                 <a class="blog-nav-item" href="/notices">通知</a>
             </li>
             <li>
-                <form class="navbar-form navbar-left">
+                <form class="navbar-form navbar-left" action="{{ route('search') }}">
                     <div class="form-group">
-                        <input type="text" class="form-control input-md" id="searchinput" placeholder="Search">
+                        <input type="text" class="form-control input-md" name="query" id="searchinput" placeholder="Search" required>
                     </div>
                     <button type="submit" class="btn btn-md btn-info" style="margin-left: -52px;">Go!</button>
                 </form>

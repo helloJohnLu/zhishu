@@ -39,8 +39,8 @@
                         <p class="blog-post-meta">
                             {{ $post->created_at->toFormattedDateString() }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
                         </p>
-                        @if(strlen(\Illuminate\Support\Str::words($post->content, 1)) > 180)
-                            {!! str_limit($post->content, 180, '......') !!}
+                        @if(strlen(\Illuminate\Support\Str::words($post->content, 1)) > 102)
+                            {!! str_limit($post->content, 102, '......') !!}
                         @else
                             {!! \Illuminate\Support\Str::words($post->content, 1) !!}
                         @endif

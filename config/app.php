@@ -183,6 +183,9 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        // Scout全文搜索
+        Laravel\Scout\ScoutServiceProvider::class,
+
     ],
 
     /*
