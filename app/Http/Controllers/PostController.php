@@ -117,6 +117,10 @@ class PostController extends Controller
         // 校验
         $this->validate($request, [
             'content'   =>  'required|min:5|max:500'
+        ],[
+            'content.required'  =>  '请填写评论内容',
+            'content.min'       =>  '为避免无意义的评论，评论内容不能少于5个字',
+            'content.max'       =>  '请不要发表内容过长的评论，500 个字为限',
         ]);
 
         // 逻辑
