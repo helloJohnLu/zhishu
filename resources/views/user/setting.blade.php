@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="col-sm-8 blog-main">
+        @include('messages.message')
         <form class="form-horizontal" action="{{ route('user.settingStore') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">

@@ -19,4 +19,10 @@ class Post extends Model
     {
         return $this->belongsTo(\App\Models\User::class);
     }
+
+    // 评论模型
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment')->orderBy('created_at', 'desc');
+    }
 }

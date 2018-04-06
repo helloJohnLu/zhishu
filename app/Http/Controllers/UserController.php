@@ -53,6 +53,8 @@ class UserController extends Controller
 
         $user->save();
 
+        session()->flash('success', '更新用户资料成功');
+
         return back();
     }
 }

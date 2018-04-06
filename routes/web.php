@@ -8,10 +8,10 @@ Route::get('posts', function () {
 });
 // 首页
 Route::get('/', 'PostController@index')->name('posts.index');
-
 // 文章图片上传
 Route::post('posts/image/upload', 'PostController@imageUpload')->name('posts.imageUpload');
-
+// 文章评论
+Route::post('posts/{post}/comment', 'PostController@comment')->name('posts.comment');
 
 /* 用户模块*/
 // 用户注册
