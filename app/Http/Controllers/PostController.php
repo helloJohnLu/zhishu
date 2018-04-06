@@ -6,6 +6,7 @@ use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\ImageUploadRequest;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Zan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yankewei\LaravelSensitive\Facades\Sensitive;
@@ -20,7 +21,7 @@ class PostController extends Controller
     // 文章列表
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->withCount('comments')->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')->withCount(['comments','zans'])->paginate(6);
 
         return view('post.index', compact('posts'));
     }
@@ -142,4 +143,27 @@ class PostController extends Controller
         // 渲染
         return back();
     }
+
+    // 点赞功能
+    public function zan(Post $post)
+    {
+        $param = [
+            'user_id'       =>  \Auth::id(),
+            'post_id'       =>  $post->id,
+        ];
+
+        // firstOrCreate 先查找，如果没有找到就创建
+        Zan::firstOrCreate($param);
+
+        return back();
+    }
+
+    // 取消赞
+    public function unzan(Post $post)
+    {
+        $post->zan(\Auth::id())->delete();
+
+        return back();
+    }
+
 }

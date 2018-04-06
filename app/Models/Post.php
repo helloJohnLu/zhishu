@@ -25,4 +25,16 @@ class Post extends Model
     {
         return $this->hasMany('App\Models\Comment')->orderBy('created_at', 'desc');
     }
+
+    // 文章与赞模型 关联
+    public function zan($user_id)
+    {
+        return $this->hasOne(\App\Models\Zan::class)->where('user_id', $user_id);
+    }
+
+    // 所有赞的数量
+    public function zans()
+    {
+        return $this->hasMany(\App\Models\Zan::class);
+    }
 }

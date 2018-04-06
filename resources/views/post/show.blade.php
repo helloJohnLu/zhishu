@@ -23,7 +23,11 @@
 
                 {!! $post->content !!}
                 <div>
-                    <a href="/posts/{{ $post->id }}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
+                    @if($post->zan(Auth::id())->exists())
+                    <a href="/posts/{{ $post->id }}/unzan" type="button" class="btn btn-default btn-md">取消赞</a>
+                    @else
+                    <a href="/posts/{{ $post->id }}/zan" type="button" class="btn btn-success btn-md">赞</a>
+                    @endif
                 </div>
             </div>
 

@@ -27,3 +27,7 @@ Route::get('user/me/setting', 'UserController@setting')->name('user.setting');
 // 个人设置操作
 Route::post('user/me/setting', 'UserController@settingStore')->name('user.settingStore');
 
+
+/*点赞模块*/
+Route::get('posts/{post}/zan', 'PostController@zan')->name('posts.zan');
+Route::get('posts/{post}/unzan', 'PostController@unzan')->name('posts.unzan');
