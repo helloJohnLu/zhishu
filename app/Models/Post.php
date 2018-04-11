@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
@@ -64,5 +65,20 @@ class Post extends Model
         ];
 
         return $array;
+    }
+
+    /**
+     * 日期时间格式
+     *
+     * @param $date
+     * @return string|static
+     */
+    public function getCreatedAtAttribute($date)
+    {
+        if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
+            return Carbon::parse($date)->toFormattedDateString();
+        }
+
+        return Carbon::parse($date)->diffForHumans();
     }
 }

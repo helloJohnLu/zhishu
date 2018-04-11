@@ -40,37 +40,37 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Fan::class, 'star_id', 'id');
     }
 
-    // 我关注的人
-    public function stars()
+    // 关注用户列表
+    public function followers()
     {
         return $this->hasMany(\App\Models\Fan::class, 'fan_id', 'id');
     }
 
     // 我关注某人
-    public function doFan($uid)
+    public function follow($uid)
     {
         $fan = new Fan();
         $fan->star_id = $uid;
-        return $this->stars()->save($fan);
+        return $this->followers()->save($fan);
     }
 
     // 取消关注
-    public function doUnfan($uid)
+    public function unFollow($uid)
     {
         $fan = new Fan();
         $fan->star_id = $uid;
-        return $this->stars()->delete($fan);
+        return $this->followers()->delete($fan);
     }
 
     // 当前用户是否被uid关注了
-    public function hasFan($uid)
+    public function beFollowed($uid)
     {
         return $this->fans()->where('fan_id', $uid)->count();
     }
 
     // 当前用户是否关注了uid
-    public function hasStar($uid)
+    public function isFollowing($uid)
     {
-        return $this->stars()->where('star_id', $uid)->count();
+        return $this->followers()->where('star_id', $uid)->count();
     }
 }

@@ -35,8 +35,8 @@ Route::post('user/me/setting', 'UserController@settingStore')->name('user.settin
 // 个人中心
 Route::get('user/{user}', 'UserController@show')->name('user.show');
 // 关注与取消关注
-Route::post('user/{user}/fan', 'UserController@fan')->name('user.fan');
-Route::post('user/{user}/unfan', 'UserController@unfan')->name('user.unfan');
+Route::post('user/{user}/follow', 'UserController@follow')->name('user.follow');
+Route::post('user/{user}/unFollow', 'UserController@unFollow')->name('user.unFollow');
 
 
 /*点赞模块*/

@@ -61,18 +61,47 @@ class UserController extends Controller
     // 个人中心
     public function show(User $user)
     {
-        return view('user.show', compact('user'));
+        // 向视图传递个人信息，包括：关注 / 粉丝 / 文章数
+        $user = User::withCount(['fans', 'followers', 'posts'])->find($user->id);  // User.php 中定义的模型关联
+
+        // 文章列表，取创建时间最新的前 10 条
+        $posts = $user->posts()->orderBy('created_at', 'desc')->take(10)->get();
+
+        // 关注的用户，包括关注用户的 关注 / 粉丝 / 文章数
+        $followers = $user->followers;
+        $starUsers = User::whereIn('id', $followers->pluck('star_id'))
+                        ->withCount(['followers', 'fans', 'posts'])
+                        ->get();
+
+        // 粉丝用户，包含粉丝用户的 关注 / 粉丝 / 文章数
+        $fans = $user->fans;
+        $fanUsers = User::whereIn('id', $fans->pluck('fan_id'))
+                        ->withCount(['followers', 'fans', 'posts'])
+                        ->get();
+
+        return view('user.show', compact('user', 'posts', 'starUsers', 'fanUsers'));
     }
 
     // 关注用户
-    public function fan()
+    public function follow(User $user)
     {
-        return;
+        $me = \Auth::user();    // 当前用户
+        $me->follow($user->id);  // 关注用户
+
+        return [
+            'error'     =>  0,
+            'message'   =>  ''
+        ];
     }
 
     // 取消关注
-    public function unfan()
+    public function unFollow(User $user)
     {
-        return;
+        $me = \Auth::user();        // 当前用户
+        $me->unFollow($user->id);    // 取消关注
+        return [
+            'error'     =>  0,
+            'message'   =>  ''
+        ];
     }
 }
