@@ -42,3 +42,10 @@ Route::post('user/{user}/unFollow', 'UserController@unFollow')->name('user.unFol
 /*点赞模块*/
 Route::get('posts/{post}/zan', 'PostController@zan')->name('posts.zan');
 Route::get('posts/{post}/unzan', 'PostController@unzan')->name('posts.unzan');
+
+
+/*专题模块*/
+// 专题详情页
+Route::get('topic/{topic}', 'TopicController@show')->name('topic.show');
+// 投稿
+Route::post('topic/{topic}/submit', 'TopicController@submit')->name('topic.submit');
