@@ -49,3 +49,6 @@ Route::get('posts/{post}/unzan', 'PostController@unzan')->name('posts.unzan');
 Route::get('topic/{topic}', 'TopicController@show')->name('topic.show');
 // 投稿
 Route::post('topic/{topic}/submit', 'TopicController@submit')->name('topic.submit');
+
+
+include_once 'admin.php';
