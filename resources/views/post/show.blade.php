@@ -18,7 +18,7 @@
                 </div>
 
                 <p class="blog-post-meta">
-                    {{ $post->created_at->toFormattedDateString() }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
+                    {{ $post->created_at }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
                 </p>
 
                 {!! $post->content !!}
