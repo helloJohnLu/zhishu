@@ -12,4 +12,8 @@ Route::group(['prefix' => 'admin'], function () {
     // 首页
     Route::get('home', 'Admin\HomeController@index')->name('adminHome.index');
 
+    // 管理人员模块
+    Route::get('users', 'Admin\UserController@index')->name('adminUser.index');
+    Route::get('users/create', 'Admin\UserController@create')->name('adminUser.create');
+    Route::post('user/store', 'Admin\UserController@store')->name('adminUser.store');
 });
