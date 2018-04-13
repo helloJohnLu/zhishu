@@ -56,12 +56,14 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="{{ asset('js/lib/jquery-2.2.1.js') }}"></script>
+
+<link rel="stylesheet" href="{{ asset('adminlte/bootstrap/dist/js/bootstrap.min.js') }}">
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);
 </script>
-<script src="/js/admin.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
