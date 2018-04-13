@@ -20,7 +20,7 @@ class LoginController extends Controller
     }
 
     // 登出
-    public function logou()
+    public function logout()
     {
         //
     }
