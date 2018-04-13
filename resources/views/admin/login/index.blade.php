@@ -33,10 +33,12 @@
     <div class="login-box-body">
         <p class="login-box-msg">登陆后台</p>
 
+        @include('messages.errors')
+
         <form action="{{ route('adminLogin.login') }}" method="POST">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
-                <input name="name" type="text" class="form-control" placeholder="名字">
+                <input name="email" type="text" class="form-control" placeholder="邮箱">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
