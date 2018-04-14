@@ -107,7 +107,7 @@ class Post extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('avaiable', function (Builder $builder) {
+        static::addGlobalScope('available', function (Builder $builder) {
             $builder->whereIn('status', [0, 1]);
         });
     }

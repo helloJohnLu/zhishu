@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Post;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -16,7 +15,10 @@ class PostController extends Controller
     // 文章列表
     public function index()
     {
-        return view('admin.post.index');
+        // 排除全局scope，仅查询status状态为0的文章数据
+        $posts = Post::withoutGlobalScope('available')->where('status', 0)->orderBy('created_at', 'desc')->paginate(8);
+
+        return view('admin.post.index', compact('posts'));
     }
 
     // 文章审核
