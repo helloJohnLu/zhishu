@@ -16,4 +16,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('users', 'Admin\UserController@index')->name('adminUser.index');
     Route::get('users/create', 'Admin\UserController@create')->name('adminUser.create');
     Route::post('user/store', 'Admin\UserController@store')->name('adminUser.store');
+
+    // 文章管理模块
+    Route::get('posts', 'Admin\PostController@index')->name('adminPost.index');
+    Route::post('posts/status', 'AdminPostController@status')->name('adminPost.status');
 });

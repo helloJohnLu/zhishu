@@ -16,16 +16,20 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="/admin/users/store" method="POST">
-                            <input type="hidden" name="_token" value="RPPMc0lhvtynKELDZljXlz9UZI9uNc55ip1P8GCM">
+                        <form role="form" action="{{ route('adminUser.store') }}" method="POST">
+                            {{ csrf_field() }}
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">用户名</label>
+                                    <label for="name">用户名</label>
                                     <input type="text" class="form-control" name="name">
                                 </div>
                                 <div class="form-group">
+                                    <label for="email">邮箱</label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputPassword1">密码</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control" name="password">
                                 </div>
                             </div>
                             <!-- /.box-body -->
