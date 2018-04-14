@@ -24,6 +24,17 @@ class PostController extends Controller
     // 文章审核
     public function status(Post $post)
     {
-        return ;
+        $this->validate(request(), [
+            'status' => 'required|in: -1,1',
+        ]);
+
+        $post->status = request('status');
+        $post->save();
+
+        // 返回 json 数据
+        return [
+            'error' => 0,
+            'msg' => ''
+        ];
     }
 }

@@ -19,5 +19,5 @@ Route::group(['prefix' => 'admin'], function () {
 
     // 文章管理模块
     Route::get('posts', 'Admin\PostController@index')->name('adminPost.index');
-    Route::post('posts/status', 'AdminPostController@status')->name('adminPost.status');
+    Route::post('posts/{post}/status', 'Admin\PostController@status')->name('adminPost.status');
 });
