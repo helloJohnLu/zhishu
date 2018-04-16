@@ -1,8 +1,6 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<div class="content-wrapper">
-
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -40,5 +38,4 @@
             </div>
         </div>
     </section>
-</div>
 @stop

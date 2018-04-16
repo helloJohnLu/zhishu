@@ -1,10 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-    <div class="content-wrapper">
-
-        <!-- Main content -->
-        <section class="content">
+<section class="content">
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-lg-10 col-xs-6">
@@ -38,6 +35,4 @@
                 </div>
             </div>
         </section>
-        <!-- /.content -->
-    </div>
 @stop

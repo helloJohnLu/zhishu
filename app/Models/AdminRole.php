@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AdminRole extends Model
 {
     //
+    protected $fillable = ['name', 'description'];
 
     // 当前角色的所有权限
     public function permissions()
