@@ -25,7 +25,7 @@
                             <td>{{ $topic->id }}</td>
                             <td>{{ $topic->name }}</td>
                             <td>
-                                <a type="button" class="btn resource-delete" delete-url="{{ route('topics.destroy', $topic->id) }}" href="#" >删除</a>
+                                <a type="button" class="btn resource-delete" delete-url="/admin/topics/{{ $topic->id }}" href="javascript:;" >删除</a>
                             </td>
                         </tr>
                         @endforeach
