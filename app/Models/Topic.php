@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
+
+    protected $fillable = ['name'];
+
     // 属于某个专题的所有文章    专题 & 文章 多对多
     public function posts()
     {

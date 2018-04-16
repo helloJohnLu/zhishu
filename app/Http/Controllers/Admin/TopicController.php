@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,7 +20,9 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return view('admin/topic/index');
+        $topics = Topic::all();
+
+        return view('admin/topic/index', compact('topics'));
     }
 
     /**
@@ -40,7 +43,19 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string'
+        ], [
+            'name.required' => '请填写专题名',
+        ]);
+
+        $result = Topic::create(['name' => $request->get('name')]);
+
+        if (! $result) {
+            return back()->withErrors('请填写内容');
+        }
+
+        return redirect()->route('topics.index');
     }
 
     /**

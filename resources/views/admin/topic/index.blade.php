@@ -11,7 +11,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">专题列表</h3>
                 </div>
-                <a type="button" class="btn " href="/admin/topics/create" >增加专题</a>
+                <a type="button" class="btn " href="{{ route('topics.create') }}" >增加专题</a>
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-bordered">
@@ -20,20 +20,15 @@
                             <th>专题名称</th>
                             <th>操作</th>
                         </tr>
+                        @foreach($topics as $topic)
                         <tr>
-                            <td>1</td>
-                            <td>旅游</td>
+                            <td>{{ $topic->id }}</td>
+                            <td>{{ $topic->name }}</td>
                             <td>
-                                <a type="button" class="btn resource-delete" delete-url="/admin/topics/1" href="#" >删除</a>
+                                <a type="button" class="btn resource-delete" delete-url="{{ route('topics.destroy', $topic->id) }}" href="#" >删除</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>轻松</td>
-                            <td>
-                                <a type="button" class="btn resource-delete" delete-url="/admin/topics/2" href="#" >删除</a>
-                            </td>
-                        </tr>
+                        @endforeach
                         </tbody></table>
                 </div>
             </div>

@@ -13,10 +13,12 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">增加专题</h3>
                     </div>
+
+                    @include('messages.errors')
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="/admin/topics" method="POST">
-                        <input type="hidden" name="_token" value="RPPMc0lhvtynKELDZljXlz9UZI9uNc55ip1P8GCM">
+                    <form role="form" action="{{ route('topics.store') }}" method="POST">
+                        {{ csrf_field() }}
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">专题名</label>
