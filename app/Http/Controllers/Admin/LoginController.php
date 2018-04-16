@@ -10,6 +10,11 @@ class LoginController extends Controller
     // 登录页面
     public function index()
     {
+        // 让已登录用户不能访问登录页
+        if (\Auth::guard('admin')->user()) {
+            return redirect()->route('adminHome.index');
+        }
+
         return view('admin.login.index');
     }
 

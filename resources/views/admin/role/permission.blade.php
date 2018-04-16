@@ -32,8 +32,6 @@
                             <button type="submit" class="btn btn-primary">提交</button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>

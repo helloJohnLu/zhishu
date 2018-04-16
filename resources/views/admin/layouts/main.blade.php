@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>知 · 书 后台管理</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -57,7 +57,7 @@
 <!-- jQuery 2.2.3 -->
 <script src="{{ asset('js/lib/jquery-2.2.1.js') }}"></script>
 
-<link rel="stylesheet" href="{{ asset('adminlte/bootstrap/dist/js/bootstrap.min.js') }}">
+<script src="{{ asset('adminlte/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

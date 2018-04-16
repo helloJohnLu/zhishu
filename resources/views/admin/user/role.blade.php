@@ -23,8 +23,7 @@
                                             checked
                                            @endif
                                            value="{{ $role->id }}">
-                                    {{ $role->name }}
-                                    sys-manager
+                                    {{ $role->description }}
                                 </label>
                             </div>
                             @endforeach
