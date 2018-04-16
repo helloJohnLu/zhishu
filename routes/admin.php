@@ -47,4 +47,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('posts', 'Admin\PostController@index')->name('adminPost.index');
         Route::post('posts/{post}/status', 'Admin\PostController@status')->name('adminPost.status');
     });
+
+
+    /* 专题模块 */
+    Route::group(['middleware' => 'can:topic'], function () {
+        Route::resource('topics', 'Admin\TopicController', ['only' => ['index', 'create', 'store', 'destroy']]);
+    });
 });
