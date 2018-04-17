@@ -73,4 +73,16 @@ class User extends Authenticatable
     {
         return $this->followers()->where('star_id', $uid)->count();
     }
+
+    // 用户收到的通知, 多对多关联
+    public function notices()
+    {
+        return $this->belongsToMany(\App\Models\Notice::class, 'user_notice', 'user_id', 'notice_id')->withPivot(['user_id', 'notice_id']);
+    }
+
+    // 给用户增加通知
+    public function addNotice($notice)
+    {
+        return $this->notices()->save($notice);
+    }
 }
