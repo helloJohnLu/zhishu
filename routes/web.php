@@ -51,4 +51,8 @@ Route::get('topic/{topic}', 'TopicController@show')->name('topic.show');
 Route::post('topic/{topic}/submit', 'TopicController@submit')->name('topic.submit');
 
 
+/* 通知模块 */
+Route::get('notices', 'NoticeController@index');
+
+
 include_once 'admin.php';
