@@ -10,7 +10,7 @@
         <div class="blog-post">
             <h2 class="blog-post-title"><a href="{{ route('posts.show', $post->id) }}" >{{ $post->title }}</a></h2>
             <p class="blog-post-meta">
-                {{ $post->created_at->toFormattedDateString() }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
+                {{ $post->created_at }} by <a href="/user/{{ $post->user->id }}">{{ $post->user->name }}</a>
             </p>
             <p>
                 @if(strlen(\Illuminate\Support\Str::words($post->content, 1)) > 102)
