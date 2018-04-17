@@ -20,6 +20,10 @@ Route::post('posts/{post}/comment', 'PostController@comment')->name('posts.comme
 // 用户注册
 Route::get('register', 'RegisterController@index')->name('register.index');
 Route::post('register', 'RegisterController@store')->name('register.store');
+// 验证码
+Route::get('register/code', 'RegisterController@code')->name('register.code');
+//Route::get('register/getcode', 'RegisterController@getcode')->name('register.getcode');
+
 // 登录
 Route::get('login', 'LoginController@index')->name('login');
 Route::post('login', 'LoginController@store')->name('login.store');

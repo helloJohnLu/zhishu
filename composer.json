@@ -13,7 +13,8 @@
         "laravel/framework": "5.5.*",
         "laravel/scout": "^4.0",
         "laravel/tinker": "~1.0",
-        "yankewei/laravel-sensitive": "^2.0"
+        "yankewei/laravel-sensitive": "^2.0",
+        "gregwar/captcha": "1.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

@@ -44,7 +44,10 @@
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="输入密码" required>
         <label class="sr-only">再次输入密码</label>
         <input type="password" name="password_confirmation" class="form-control" placeholder="再次输入密码" required>
-
+        <label for="code" class="sr-only">验证码</label>
+        <input type="text" name="code" class="form-control" placeholder="验证码" required>
+        <img src="{{ route('register.code') }}" alt="验证码" onclick="this.src='{{ route('register.code') }}?'+Math.random()">
+        <br><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
         <br>
         <a href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-arrow-left"></i> 返回首页</a>
