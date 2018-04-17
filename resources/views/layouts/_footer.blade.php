@@ -1,7 +1,7 @@
 <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>Powered by Laravel & Bootstrap</p>
     <p>
-        <a href="#">Back to top</a>
+        <span>这是一个实战练习项目，请勿真正注册！</span>
     </p>
 </footer>
 <!-- Bootstrap core JavaScript
