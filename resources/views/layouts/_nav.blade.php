@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control input-md" name="query" id="searchinput" placeholder="Search" required>
                     </div>
-                    <button type="submit" class="btn btn-md btn-info" style="margin-left: -52px;">Go!</button>
+                    <button type="submit" class="btn btn-md btn-info">Go!</button>
                 </form>
             </li>
         </ul>
