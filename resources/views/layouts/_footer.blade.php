@@ -1,7 +1,7 @@
 <footer class="blog-footer">
     <p>Powered by Laravel & Bootstrap</p>
     <p>
-        <span>这是一个实战练习项目，请勿真正注册！</span>
+        <span>这是一个实战练习项目。</span>
     </p>
 </footer>
 <!-- Bootstrap core JavaScript
